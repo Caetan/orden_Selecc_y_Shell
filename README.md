@@ -1,3 +1,5 @@
-Desarrollo y an醠isis de resultados de dos algoritmos para la resoluci髇 del problema de la suma de la subsecuencia m醲ima
+# Algoritmos de ordenaci贸n por selecci贸n y Shell
 
-Proyecto desarrollado por 羖ex Velo Sant髍um y Caet醤 Tojeiro Carpente
+Desarrollo y an谩lisis de resultados de dos algoritmos para la resoluci贸n del problema de la suma de la subsecuencia m谩xima
+
+Proyecto desarrollado por 脕lex Velo Sant贸rum y Caet谩n Tojeiro Carpente
