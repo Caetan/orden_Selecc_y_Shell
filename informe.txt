@@ -1,0 +1,154 @@
+1. INTRODUCCIÓN
+
+Este trabajo realizado por los alumnos Alexandre Velo Santórum y Caetán Tojeiro Carpente como solución de la Práctica 2 de la asignatura de Algoritmos, presenta la implementación del algoritmo de ordenación por selección y del algoritmo de ordenación por Shell (en honor a su inventor Donald Shell), mediante los cuales se resuelve el problema de ordenación ascendente de un vector de n números enteros.
+
+Se parte de un pseudocódigo para la implementación en lenguaje C de dichos algoritmos.
+A continuación se valida el correcto funcionamiento de los mismos. Esta comprobación de los resultados se realiza mediante dos test, uno para cada uno de los algoritmos y dentro de cada uno de estos test se testea el algoritmo con un vector desordenado y con un vector descendente.
+Por último, se hace un estudio de los tiempos que han sido arrojados por la ejecución de dichos algoritmos para vectores que aumentan de tamaño siguiendo una progresión geométrica de orden 2 y para tres tipos de vectores: un vector ordenado ascendente, un vector ordenado descendente y un vector desordenado.
+
+
+2. HARDWARE
+
+Las características técnicas de la máquina en la que se han ejecutado los algoritmos y sus pruebas son las siguientes:
+
+- CPU: Intel Core i7-4790K 4.00GHz
+- Sistema Operativo: Ubuntu 14.04 LTS 64 bits
+- Memoria RAM: Kingston HyperX Fury Black DDR3 1866MHz de 16GB, con 2 módulos de 8GB CL10
+- Disco Duro: WD Blue 1TB SATA3 a 7200rpm con Buffer 64 MB Cache
+
+
+
+3. UNIDADES DE TIEMPO
+
+Las unidades de tiempo en las que se presentan los resultados obtenidos con las ejecuciones de los algoritmos son microsegundos.
+Como mínimo, los resultados se presentan con tres cifras significativas.
+
+
+
+4. ESTUDIO DE LOS RESULTADOS
+
+Las sucesivas ejecuciones de los algoritmos se realizan siguiendo una progresión geométrica del número de vectores que se ejecutan por dicho algoritmo. Si se le llama n a la cantidad de vectores con los que se trabaja en cada estudio del algoritmo, los valores para los que se ha obtenido un tiempo de ejecución de cada uno de los algoritmos son: n=500, n=1000, n=2000, n=4000, n=8000, n=16000, n=32000 y n=64000. En otras palabras, el tamaño de las entradas de la tabla sigue una progresión geométrica de razón dos, empezando en 500 y con 7 saltos.
+
+Para el estudio que se realiza a continuación se han generado 3 tablas de cada uno de los algoritmos y se han seleccionado como medidas a analizar la tabla con mejores tiempos arrojados.
+
+Seguidamente se muestran las tablas elegidas para el estudio a desarrollar:
+
+Ordenacion por seleccion con inicializacion ascendente
+              n              t(n)          t(n)/n^1.8            t(n)/n^2          t(n)/n^2.2
+(*)         500        240.085500            0.003328            0.000960            0.000277
+           1000        947.000000            0.003770            0.000947            0.000238
+           2000       3771.000000            0.004311            0.000943            0.000206
+           4000      15633.000000            0.005133            0.000977            0.000186
+           8000      61476.000000            0.005796            0.000961            0.000159
+          16000     240144.000000            0.006502            0.000938            0.000135
+          32000     984034.000000            0.007651            0.000961            0.000121
+          64000    3907523.000000            0.008725            0.000954            0.000104
+
+
+Ordenacion por shell con inicializacion ascendente
+              n              t(n)              t(n)/n       t(n)/(n^1.15)          t(n)/n^1.3
+(*)         500         12.714200            0.025428            0.010011            0.003941
+(*)        1000         27.959600            0.027960            0.009920            0.003520
+(*)        2000         64.457700            0.032229            0.010306            0.003296
+(*)        4000        141.936400            0.035484            0.010226            0.002947
+(*)        8000        329.859300            0.041232            0.010710            0.002782
+          16000        695.000000            0.043437            0.010168            0.002380
+          32000       1465.000000            0.045781            0.009659            0.002038
+          64000       3158.000000            0.049344            0.009382            0.001784
+
+
+Ordenacion por seleccion con inicializacion descendente
+              n              t(n)          t(n)/n^1.8            t(n)/n^2          t(n)/n^2.2
+(*)         500        265.540800            0.003681            0.001062            0.000306
+           1000       1040.000000            0.004140            0.001040            0.000261
+           2000       4109.000000            0.004698            0.001027            0.000225
+           4000      17415.000000            0.005718            0.001088            0.000207
+           8000      69489.000000            0.006552            0.001086            0.000180
+          16000     275597.000000            0.007462            0.001077            0.000155
+          32000    1080413.000000            0.008401            0.001055            0.000133
+          64000    4189667.000000            0.009355            0.001023            0.000112
+
+
+Ordenacion por shell con inicializacion descendente
+              n              t(n)              t(n)/n       t(n)/(n^1.15)          t(n)/n^1.3
+(*)         500         18.561300            0.037123            0.014615            0.005754
+(*)        1000         42.233100            0.042233            0.014985            0.005317
+(*)        2000         96.453400            0.048227            0.015422            0.004931
+(*)        4000        202.971300            0.050743            0.014624            0.004215
+(*)        8000        441.348200            0.055169            0.014329            0.003722
+          16000        954.000000            0.059625            0.013958            0.003267
+          32000       2058.000000            0.064312            0.013568            0.002863
+          64000       4417.000000            0.069016            0.013123            0.002495
+
+
+Ordenacion por seleccion con inicializacion desordenado
+              n              t(n)          t(n)/n^1.8            t(n)/n^2          t(n)/n^2.2
+(*)         500        261.115700            0.003620            0.001044            0.000301
+           1000        989.000000            0.003937            0.000989            0.000248
+           2000       3836.000000            0.004386            0.000959            0.000210
+           4000      15607.000000            0.005124            0.000975            0.000186
+           8000      62710.000000            0.005913            0.000980            0.000162
+          16000     248654.000000            0.006733            0.000971            0.000140
+          32000     984624.000000            0.007656            0.000962            0.000121
+          64000    3854924.000000            0.008608            0.000941            0.000103
+
+
+Ordenacion por shell con inicializacion desordenado
+              n              t(n)     t(n)/(n*log(n))       t(n)/(n^1.2))          t(n)/n^1.3
+(*)         500         42.923900            0.013814            0.024771            0.013306
+(*)        1000        101.888100            0.014750            0.025593            0.012827
+(*)        2000        229.300500            0.015084            0.025071            0.011724
+           4000        534.000000            0.016096            0.025414            0.011088
+           8000       1210.000000            0.016829            0.025066            0.010204
+          16000       2729.000000            0.017619            0.024607            0.009346
+          32000       6379.000000            0.019217            0.025036            0.008873
+          64000      14809.000000            0.020909            0.025299            0.008365
+
+
+(*) ver apartado 4.4
+
+
+	4.1 - Cotas ajustadas
+
+	Para el algoritmo de ordenación por selección se puede establecer una cota ajustada en torno al intervalo de 0,000951 para vectores ordenados ascendentemente, de 0,0010516 para vectores ordenados descendentemente y de 0,000958 para vectores desordenados. Esta cota ajustada se realiza mediante la función t(n)/n^2 cuando n tiende a infinito para los tiempos de los vectores ordenados de forma ascendente, descendente y los vectores desordenados.
+	Por otro lado, el algoritmo de ordenación por Shell ha sido acotado de manera ajustada tanto para los vectores ordenados de manera ascendente como descendente por la función t(n)/(n^1.15) que oscila en un intervalo en torno al 0,0097363 para vectores ordenados de forma ascendente y de 0,0135497 para vectores ordenados de manera descendente, mientras que para los vectores desordenados se ha elegido la función t(n)/(n^1.2) como cota cuando n tiende a infinito con un intervalo de 0,02498.
+	Los intervalos han sido calculados promediando las mediciones de tiempo de las 3 últimas entradas de cada tabla.
+
+
+	4.2 - Cota subestimada
+
+	Como cota subestimada se ha utilizado la función t(n)/n^1.8 para el algoritmo de ordenación por selección para los tiempos que arroja el algoritmo de ordenación para los 3 tipos de vectores. 
+	En cuanto a la función que acota inferiormente los resultados del algoritmo de ordenación por Shell se ha utilizado la función t(n)/n para acotar los tiempos de los vectores ordenados de forma ascendente y descendente, mientras que la función t(n)/(n*log(n)) es la elegida para acotar los vectores desordenados.
+
+	Estas funciones tienden a infinito cuando n tiende a infinito, por ser la cota subestimada.
+
+
+	4.3 - Cota sobrestimada
+
+	La función utilizada para acotar superiormente los resultados del algoritmo de ordenación por selección es t(n)/n^2.2 para los 3 tipos de vectores de utilizados, tanto el ordenado de manera ascendente, el ordenado de manera descendente como el desordenado 
+	Por otra parte, en el algoritmo de ordenación por Shell se utiliza la función t(n)/n^1.3 para acotar los tiempos de los 3 tipos de vectores.
+
+	Estas funciones tienden a cero cuando n tiende a infinito, por ser la cota sobrestimada.
+
+
+	4.4 - Estudio de los bucles
+
+	Las entradas de la tabla marcadas con el distintivo (*) indican que la medición del tiempo arrojado en un primer momento fue menor a un tiempo t de 500 microsegundos, por lo tanto se realiza un procedimiento especial para dicha medición que consiste en la ejecución del algoritmo repetidamente un número K de veces siendo siempre K una potencia de 10. 
+	En el caso del algoritmo de ordenación por selección, al igual que en el de ordenación por Shell, se ha trabajado con K=10000. A continuación, se hace un promedio de las K medidas tomadas para dar un resultado más ajustado del tiempo de ejecución del algoritmo. 
+
+
+	4.5 - Mediciones anómalas
+
+	No se ha detectado ninguna medición anómala en las tablas presentadas anteriormente. Para ello se ha ejecutado de manera consecutiva.
+
+
+5. CONCLUSIONES
+
+- Algoritmo de ordenación por selección: Este algoritmo presenta una complejidad de implementación baja, así como es también baja la dificultad para estudiar el mismo. Sin embargo, esta menor complejidad tiene como resultado que este algoritmo no posee una buena eficiencia.
+
+
+- Algoritmo de ordenación por Shell: La eficiencia de este algoritmo va a la par a su dificultad de implementación así como su dificultad a la hora de estudiarlo, puesto que se ha requerido de un mayor tiempo de desarrollo y estudio, aunque cabe mencionar que ofrece unos buenos resultados.
+
+
+En un contexto de puesta en común de ambos algoritmos, la conclusión que arroja este trabajo es que el algoritmo de ordenación por Shell es notablemente más rápido que el algoritmo de ordenación por selección. Si se presta atención a los resultados, el crecimiento de tiempo del algoritmo de ordenación por selección crece en torno a 4 veces respecto al tiempo del anterior, mientras que el tiempo en el algoritmo de ordenación por Shell aumenta en torno a 2,5 veces el tiempo consumido por el vector de tamaño inmediatamente anterior en la tabla. Además, cabe considerar la más que notable diferencia de tiempo que hay comparando la ejecución del algoritmo de ordenación por selección con el algoritmo de ordenación por Shell.
+Por último hay que salientar que un vector ordenado descendentemente no es el peor caso posible para la ordenación por Shell, y su tiempo de ordenación se aproxima mucho al de un vector ya ordenado.
